@@ -1,0 +1,43 @@
+Evaluation Only. Created with Aspose.PDF. Copyright 2002-2024 Aspose Pty Ltd.,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19
+PAGE - SCH - 4,,,,,,,,,,,,,,,,,,,
+IAN BANHAM & ASSOCIATES,ELECTRICAL,,,,,,,,,,,,,,,,,,
+PROJECT :,B+G+M+1 FLOOR CAR SHOWROOM & OFFICE BUILDING DETAILS OF CONNECTED LOAD/MAX. DEMAND,,,,,,,,,,,,,,,,,,
+MDB REF :,,MDB - E,,,,,CONSULTANT :,,M/S. IAN BANHAM & ASSOCIATES,,,,,,LOCATION : LV ROOM,,,,
+,,,,,,,,,,,,,,,,,,BASEMENT FLOOR,
+SR.,CIRCUIT,SP/,RATING - AMPS,,,FAULT,PVC/XLPE,CABLE SIZE,,LENGTH,ECC,CONNECTED LOAD - KW,,,,KWH METER,,,REMARKS
+NO,"FEEDER
+DB NO.",TP,ACB,MCCB,MCB,"DUTY
+KA",SWA/PVC/SC,"2/4x1C
+mm²","2/3/4C
+mm²","OF
+CABLE (Mtrs)","SIZE -1C
+mm²","R-PHASE
+kW","Y-PHASE
+kW","B-PHASE
+kW","TOTAL
+kW","1 Ph
+(1)","3 Ph
+(2)","LV/HV CT
+(3)",
+1,INCOMER - 1,4P,,"800
+(N/A)",,50,XLPE/SWA/PVC,,2x4C 300,,1C 300,,,,,,,,
+2,550 KVA GENERATOR,4P,,"800
+(N/A)",,50,FIRE PROOF,,2x4C 300,,1C 300,,,,,,,,
+,OUTGOING,,,,,,,,,,,,,,,,,,
+1,SMDB-BE1,TP,,225,,50,FIRE PROOF,,4C 120,,1C 70,36.47,35.37,35.47,107.3,,,,
+2,SMDB-BE2,TP,,125,,50,FIRE PROOF,,4C 50,,1C 25,18.37,17.87,18.07,54.3,,,,
+3,SMDB-BE3,TP,,200,,50,FIRE PROOF,,4C 95,,1C 50,29.47,30.77,27.87,88.1,,,,
+4,SMDB-GE1,TP,,250,,50,FIRE PROOF,,4C 150,,1C 70,42.07,40.27,37.57,119.9,,,,
+5,SMDB-RE,TP,,40,,50,FIRE PROOF,,4C 10,,1C 10,6.4,6.4,6.2,19,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,MDB - E,CONNECTED TO,LV MDB-1,,,TOTAL CONNECTED LOAD PER PHASE,,,,,,132.77,130.67,125.17,388.6,,,,TOTAL
+,DEMAND FACTOR…… MAX. DEMAND…...…kW TOTAL CONNECTED LOAD (3 PHASE)…388.60…kW TOTAL BUILD - UP AREA ......... ACTUAL LOAD (3 PH)…...kW,,,,,,,,,,,,,,,,,,
+,CONSULTANTS : M/S. IAN BANHAM AND ASSOCIATES,,,,,,,,,,TEL : 04 - 370 5777,,,,FAX : 04 - 370 5888,,,,
+Type of Meter (Rating of Incomer) :,(1) UPTO 60A,(2) UPTO 125A,(3) LV CT ……….../………...,HV CT ……….../………...A,,,,,,,,,,,,,,,
+,(1 PHASE),(3 PHASE),,,,,,,,,,,,,,,,,

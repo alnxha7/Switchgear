@@ -1,0 +1,42 @@
+Evaluation Only. Created with Aspose.PDF. Copyright 2002-2024 Aspose Pty Ltd.,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19
+PAGE - SCH - 9,,,,,,,,,,,,,,,,,,,
+IAN BANHAM & ASSOCIATES,ELECTRICAL,,,,,,,,,,,,,,,,,,
+PROJECT :,B+G+M+1 FLOOR CAR SHOWROOM & OFFICE BUILDING DETAILS OF CONNECTED LOAD/MAX. DEMAND,,,,,,,,,,,,,,,,,,
+SMDB REF :,SMDB - BE2,,,,,,CONSULTANT :,,M/S. IAN BANHAM & ASSOCIATES,,,,,,LOCATION : ELECT ROOM,,,,
+,,,,,,,,,,,,,,,,,,BASEMENT,
+SR.,CIRCUIT,SP/,RATING - AMPS,,,FAULT,PVC/XLPE,CABLE SIZE,,LENGTH,ECC,CONNECTED LOAD - KW,,,,KWH METER,,,REMARKS
+NO,"FEEDER
+DB NO.",TP,ACB,MCCB,MCB,"DUTY
+KA",SWA/PVC/SC,"2/4x1C
+mm²","2/3/4C
+mm²","OF
+CABLE (Mtrs)","SIZE -1C
+mm²","R-PHASE
+kW","Y-PHASE
+kW","B-PHASE
+kW","TOTAL
+kW","1 Ph
+(1)","3 Ph
+(2)","LV/HV CT
+(3)",
+,INCOMER,TP,,"125
+(N/A)",,30,FIRE PROOF,,4C 50,,1C 25,,,,,,,,
+,OUTGOING,,,,,,,,,,,,,,,,,,
+1,DB-BE2,TP,,40,,30,FIRE PROOF,,4C 10,,1C 10,2.2,1.7,1.9,5.8,,,,*
+2,WATER BOOSTER PUMP,TP,,32,,30,XLPE/SWA/PVC,,4C 6,,1C 6,3.33,3.33,3.33,10,,,,*
+3,SUMP PUMP-3,TP,,20,,30,XLPE/SWA/PVC,,4C 4,,1C 4,0.5,0.5,0.5,1.5,,,,*
+4,SUMP PUMP-1,TP,,20,,30,XLPE/SWA/PVC,,4C 4,,1C 4,0.5,0.5,0.5,1.5,,,,*
+5,SUMP PUMP-4,TP,,20,,30,XLPE/SWA/PVC,,4C 4,,1C 4,0.5,0.5,0.5,1.5,,,,*
+6,SEWAGE PUMP,TP,,20,,30,XLPE/SWA/PVC,,4C 4,,1C 4,0.67,0.67,0.67,2,,,,*
+7,CPEF,TP,,40,,30,XLPE/SWA/PVC,,4C 10,,1C 10,5.33,5.33,5.33,16,,,,*
+8,CPEF,TP,,40,,30,XLPE/SWA/PVC,,4C 10,,1C 10,5.33,5.33,5.33,16,,,,*
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+SMDB - BE2,CONNECTED TO,,,MDB-E,,TOTAL CONNECTED LOAD PER PHASE,,,,,,18.37,17.87,18.07,54.3,,,,TOTAL
+,DEMAND FACTOR…… MAX. DEMAND…...…kW TOTAL CONNECTED LOAD (3 PHASE)…54.30…kW TOTAL BUILD - UP AREA ......... ACTUAL LOAD (3 PH)…...kW,,,,,,,,,,,,,,,,,,
+,CONSULTANTS : M/S. IAN BANHAM AND ASSOCIATES,,,,,,,,,,TEL : 04 - 370 5777,,,,FAX : 04 - 370 5888,,,,
+,Type of Meter (Rating of Incomer) :,,,,(1) UPTO 60A,,,(2) UPTO 125A,,,(3) LV CT,……….../………...,,,HV CT ……….../………...A,,,,
+,,,,,(1 PHASE),,,(3 PHASE),,,,,,,,,,,
+,,,* REFER SINGLE LINE DIAGRAM FOR ELCB RATING,,,,,,,,,,,,,,,,

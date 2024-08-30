@@ -1,0 +1,36 @@
+Evaluation Only. Created with Aspose.PDF. Copyright 2002-2024 Aspose Pty Ltd.,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19
+PAGE - SCH - 18,,,,,,,,,,,,,,,,,,,
+IAN BANHAM & ASSOCIATES,ELECTRICAL,,,,,,,,,,,,,,,,,,
+PROJECT :,,B+G+M+1 FLOOR CAR SHOWROOM & OFFICE BUILDING DETAILS OF CONNECTED LOAD/MAX. DEMAND,,,,,,,,,,,,,,,,,
+SMDBREF :,,SMDB-GN2C,,,,,CONSULTANT :,,M/S. IAN BANHAM & ASSOCIATES,,,,,,LOCATION : ELECT ROOM,,,,
+SR.,CIRCUIT,SP/,RATING - AMPS,,,FAULT,PVC/XLPE,CABLE SIZE,,LENGTH,ECC,CONNECTED LOAD - KW,,,,KWH METER,,,REMARKS
+NO,"FEEDER
+DB NO.",TP,ACB,MCCB,MCB,"DUTY
+KA",SWA/PVC/SC,"2/4x1C
+mm²","2/3/4C
+mm²","OF
+CABLE (Mtrs)","SIZE -1C
+mm²","R-PHASE
+kW","Y-PHASE
+kW","B-PHASE
+kW","TOTAL
+kW","1 Ph
+(1)","3 Ph
+(2)","LV/HV CT
+(4)",
+,INCOMER,TP,,"630
+(N/A)",,35,XLPE/SWA/PVC,,2x4C 185,,2x1C 95,,,,,,,,
+,OUTGOING,,,,,,,,,,,,,,,,,,
+1,BAY AREA,TP,,63,,35,XLPE/SWA/PVC,,4C 16,,1C 16,6,6,6,18,,,,
+2,BAY AREA,TP,,63,,35,XLPE/SWA/PVC,,4C 16,,1C 16,6,6,6,18,,,,
+3,BAY AREA,TP,,63,,35,XLPE/SWA/PVC,,4C 16,,1C 16,6,6,6,18,,,,
+4,BAY AREA,TP,,63,,35,XLPE/SWA/PVC,,4C 16,,1C 16,6,6,6,18,,,,
+5,BAY AREA,TP,,63,,35,XLPE/SWA/PVC,,4C 16,,1C 16,6,6,6,18,,,,
+6,BAY AREA,TP,,63,,35,XLPE/SWA/PVC,,4C 16,,1C 16,6,6,6,18,,,,
+7,BAY AREA,TP,,63,,35,XLPE/SWA/PVC,,4C 16,,1C 16,6,6,6,18,,,,
+8,BAY AREA,SP,,20,,35,XLPE/SWA/PVC,,2C 4,,1C 4,1.5,,,1.5,,,,*
+8,BAY AREA,SP,,20,,35,XLPE/SWA/PVC,,2C 4,,1C 4,,1.5,,1.5,,,,*
+8,BAY AREA,SP,,20,,35,XLPE/SWA/PVC,,2C 4,,1C 4,,,1.5,1.5,,,,*
+9,BAY AREA,SP,,20,,35,XLPE/SWA/PVC,,2C 4,,1C 4,1.5,,,1.5,,,,*
+9,BAY AREA,SP,,20,,35,XLPE/SWA/PVC,,2C 4,,1C 4,,1.5,,1.5,,,,*
+,,,,,,,,,,,,,,,,,,CONT'D…,

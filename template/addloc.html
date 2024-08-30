@@ -1,0 +1,283 @@
+
+{% extends 'layout/base.html'%} {% load static %} 
+{% block title %} Location Management{% endblock title %} 
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    .editloc {
+        border: none;
+        text-align: center;
+        margin: auto;
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 4px;
+    }
+    a{
+        text-decoration:none;
+        color: white;
+    }
+    a:hover{
+        color: white;
+    }
+    .home{
+        color:black;
+    }
+    @media(max-width:640px){
+      .btnedit{
+        display: flex;
+        flex-direction: column;
+        gap: 5px 0;
+      }
+
+    }
+</style>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+                    <h1>ADD LOCATION</h1>
+                </div>
+                
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a class="home" href="{% url 'Dashboard' %}">Home</a></li>
+                        <li class="breadcrumb-item active">Add Location</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title"> Add Location</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form role="form" method="post"  name="form1" onsubmit="return validate()">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="inloc">Country</label>
+                                    <input type="text" class="form-control" id="country" placeholder="Enter Country" name="t1" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="">State</label>
+                                    <input type="text" class="form-control" id="state" placeholder="Enter State" name="t2" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Remarks</label>
+                                    <input type="text" class="form-control" id="remark" placeholder="Enter remark" name="t3"  />
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 0 !important">
+                                    <div class="card">
+                                        <div class="card-header" style="background-color: #007bff;">
+                                            <h3 class="card-title" style="color: white;">All Locations</h3>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">Sl.No</th>
+                                                            <th style="text-align: center">country</th>
+                                                            <th style="text-align: center">State</th>
+                                                            <th style="text-align: center">Remarks</th>
+                                                            <th style="text-align: center">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- <tr>
+                                                            <td style="text-align: center">1</td>
+                                                            <td style="text-align: center">Dubai</td>
+                                                            <td style="text-align: center">Details</td>
+                                                            <td style="text-align: center">
+                                                                <button class="editloc" type="button">Edit</button>
+                                                                <button class="editloc" type="button">Delete</button>
+                                                            </td>
+                                                        </tr> -->
+                                                        
+                                                        {% for i in data4 %}
+                                                            <tr>
+                                                            <td style="text-align: center">{{forloop.counter}}</td>
+                                                            <td style="text-align: center">{{i.country}}</td>
+                                                            <td style="text-align: center">{{i.locationname}}</td>
+                                                            <td style="text-align: center">{% for colorss in i.locationtax_set.all %}
+                                                                {{colorss.taxpercentage}}
+                                                             {% endfor %}</td>
+                                                            <td class="btnedit" style="text-align: center">
+                                                                <button type="button" class="btn btn-success">
+                                                                    <a style='color:white; text-decoration: none;'href="{% url 'editlocation' i.id %}">
+                                                                      Edit
+                                                                    </a>
+                                                                  </button>
+                                                                  {% if user.is_superuser %}  
+                                                                <button type="button" class="btn btn-danger"data-toggle="modal" data-target="#myModal{{i.id}}"> Delete </button>
+                                                                
+                                                                  <div class="modal" id="myModal{{i.id}}">
+                                                                    <div class="modal-dialog">
+                                                                      <div class="modal-content">
+                                                                  
+                                                                        <!-- Modal Header -->
+                                                                        <div class="modal-header">
+                                                                          <h4 class="modal-title"> Log out </h4>
+                                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                        </div>
+                                                                  
+                                                                        <!-- Modal body -->
+                                                                        <div class="modal-body">
+                                                                          Are you sure you want to delete your location?
+                                                                        </div>
+                                                                  
+                                                                        <!-- Modal footer -->
+                                                                        <div class="modal-footer">
+                                                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><a href="{% url 'location' %}">Cancel</a></button>
+                                                                         <a href="{% url 'delet' i.id %}"><button onclick="add()"  type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirm</button></a> 
+                                                                        </div>
+                                                                  
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                            {% endif %}      
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.container-fluid -->
+                    </section>
+
+                    <!-- /.content -->
+                </div>
+                <!-- /.content-wrapper -->
+          <!-- Modal -->
+          <!-- <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">-->
+          
+                
+                <!-- <div class="modal-header">
+                  <h4 class="modal-title"> Log out </h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div> -->
+          
+                <!-- Modal body -->
+                <!-- <div class="modal-body">
+                  Are you sure you want to delete your location?
+                </div> -->
+          
+                <!-- Modal footer -->
+                <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><a href="{% url 'location' %}">Cancel</a></button>
+                 <a href="{% url 'login'%}"><button type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirm</button></a> 
+                </div>
+          
+              </div>
+            </div>
+          </div>  -->
+          <script>
+             function add(){
+        alert(" deleted sucessfully  ");
+
+            }
+            function validate(){
+        var productname=document.getElementById('country');
+        var price=document.getElementById('state');
+        
+        var photo=document.getElementById('remark');
+        if(productname.value==""){
+            alert("Must have a country");
+            document.form1.t1.focus();
+            return false;
+        } 
+        if(price.value==""){
+            alert("Must have a state");
+            document.form1.t2.focus();
+            return false;
+        }
+        
+        if(photo.value==''){
+            alert("Must have a remark");
+            document.form1.t3.focus();
+            return false;
+        }
+        alert(" sucessfully registered ")
+        return true;
+
+} 
+$(document).ready(function() {
+    
+    // $('#product_name').on('keyup', function() {
+    $('#state').change(function(){
+
+        var productName = $(this).val();
+        
+        if (productName !== '') {
+            $.ajax({
+              url: '/check_person_name/',
+                data: {
+                    'product_name': productName
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.exists) {
+                        // $('#submit_button').prop('disabled', true);
+                        alert("data already exit");
+                     document.getElementById("state").focus();   
+                     document.getElementById("state").value=''; 
+                    }// } else {
+                        
+                    //     $('#submit_button').prop('disabled', false);
+                    // }
+                }
+            });
+        }
+    });
+});
+          </script>
+
+                {% endblock content %}
+            </div>
+        </div>
+    </section>
+</div>
+

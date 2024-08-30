@@ -1,0 +1,181 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Master Data Collection </h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+      <div class="container-fluid">
+       
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-12">
+            <!-- general form elements disabled -->
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Project Master Table</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form role="form">
+                  <div class="form-group">
+                    <label>Project Code</label>
+                    <input type="text" class="form-control" placeholder="Enter ..." Value =" LS001">
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Reference Name</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Connected to</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Connected Load in R-Phase (KW)</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Connected Load in Y-Phase (KW)</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Connected Load in B-Phase (KW)</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Demand Factor</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Maximum Demand (KW)</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Actual Load (KW)</label>
+                        <input type="text" class="form-control"  >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Total Buildup Area (m&sup2)</label>
+                    <input type="number" class="form-control">
+                  </div>
+                  
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+           
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- List -->
+    
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Data Collection List</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>                  
+                    <tr>
+                      <th style="width: 40px;text-align: center;">Sl.No</th>
+                      <th style="text-align: center;">Reference Name</th>
+                      <th style="text-align: center;">Connected To</th>
+                      <th style="text-align: center;"> Incomer </th>
+                      <th style="text-align: center;"> Outgoing </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center;">1.</td>
+                      <td style="text-align: center;">LV MDB-1</td>
+                      <td style="text-align: center;"> TRANSFORMER #1 15000KA </td>
+                      <td style="text-align: center;"> <button class="btn btn-primary" type="button" style="border: none;"> Add Incomer </button></td>
+                      <td style="text-align: center;"> <button class="btn btn-primary" type="button" style="border: none;"> Add Outgoing </button></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center;">2.</td> 
+                      <td style="text-align: center;">LV MDB-2</td>
+                      <td style="text-align: center;"> TRANSFORMER #2 15000KA </td>
+                      <td style="text-align: center;"> <button class="btn btn-primary" type="button" style="border: none;"> Add Incomer </button></td>
+                      <td style="text-align: center;"> <button class="btn btn-primary" type="button" style="border: none;"> Add Outgoing </button></td>
+                    </tr>
+                    
+                    
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  {% endblock content %}

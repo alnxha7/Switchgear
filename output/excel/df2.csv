@@ -1,0 +1,44 @@
+Evaluation Only. Created with Aspose.PDF. Copyright 2002-2024 Aspose Pty Ltd.,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19
+PAGE - SCH - 1,,,,,,,,,,,,,,,,,,,
+IAN BANHAM & ASSOCIATES,ELECTRICAL,,,,,,,,,,,,,,,,,,
+PROJECT : B+G+M+1 FLOOR CAR SHOWROOM & OFFICE BUILDING,,,,,,,DETAILS OF CONNECTED LOAD/MAX. DEMAND,,,,,,,AREA :,,,"AL QUOZ FIRST, DUBAI",,
+PLANNED COMPLETION DATE : 2024,,,,,,,OWNER :,,M/S. INTER EMIRATES MOTORS,,,,,PLOT :,,,35410013,,
+SUMMARY,,,,,,,CONSULTANT :,,M/S. IAN BANHAM & ASSOCIATES,,,,,,,,,,
+SR.,CIRCUIT,SP/,RATING - AMPS,,,FAULT,PVC/XLPE,CABLE SIZE,,ECC,MAXIMUM,,,,CONNECTED LOAD - KW,,,KWH METER,REMARKS
+NO,"FEEDER
+DB NO.",TP,ACB,MCCB,MCB,"DUTY
+KA",SWA/PVC/SC,"2/4x1C
+mm²","2/3/4C
+mm²","SIZE - 1C
+mm²","DEMAND
+kW","R-PHASE
+kW","Y-PHASE
+kW","B-PHASE
+kW","TOTAL
+kW","1 Ph
+(1)","3 Ph
+(2)","LV/HV CT
+(3)",
+,INCOMER,,,,,,,,,,,,,,,,,,
+,OUTGOING,,,,,,,,,,,,,,,,,,
+1,LV MDB - 1,4P,"2500
+SET @ 0.85",,,50,BY DEWA,,,2x1C 150,1200.01,624.8,611.6,603.9,,,1840.3,1,2400/5A CTM
+2,LV MDB - 2,4P,"2500
+SET @ 0.85",,,50,BY DEWA,,,2x1C 150,831.2,386.47,386.27,385.97,,,1158.7,1,2400/5A CTM
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,50,,,,,,,,,,,,,
+,,,,,,TOTAL CONNECTED LOAD PER PHASE,,,,,2031.21,1011.27,997.87,989.87,,,2999,2,TOTAL
+,"DEMAND FACTOR…0.68… MAX. DEMAND…2,031.21…kW TOTAL CONNECTED LOAD (3 PHASE)…2,999.00…kW TOTAL BUILD - UP AREA ......... ACTUAL LOAD (3 PH)…2,999.00...kW",,,,,,,,,,,,,,,,,,
+,CONSULTANTS : M/S. IAN BANHAM AND ASSOCIATES,,,,,,,,,,TEL : 04 - 370 5777,,,FAX : 04 - 370 5888,,,,,
+,Type of Meter (Rating of Incomer) :,,,,(1) UPTO 60A,,,(2) UPTO 125A,,,(3) LV CT,,,……….../………...,HV CT ……….../………...A,,,,
+,,,,,(1 PHASE),,,(3 PHASE),,,,,,,,,,,
+REV.,DATE,,,,,,,,,,,,,,,,,,
+0,"December 05, 2023",,,,,,,,,,,,,,,,,,

@@ -1,0 +1,67 @@
+{% extends 'layout/base.html' %}
+{% block title%}
+  Product Management
+{% endblock title%}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>PRODUCT MANAGEMENT</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a class="home" href="{% url 'Dashboard' %}">Home</a></li>
+                <li class="breadcrumb-item active">Add Multiple Products</li>
+            </ol>
+        </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+      <div class="container-fluid">
+       
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-12">
+            <!-- general form elements disabled -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Multiple Products</h3>
+              </div>
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form role="form" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label>Upload File</label>
+                    <input type="file" class="form-control" name="multi_products" >
+                  </div>
+                  
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+           
+      </div><!-- /.container-fluid -->
+    </section>
+
+    
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  {% endblock content %}

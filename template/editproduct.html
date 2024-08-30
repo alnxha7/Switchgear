@@ -1,0 +1,168 @@
+{% extends 'layout/base.html' %}
+{% block title%}
+ Product Management
+{% endblock title%}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>PRODUCT MANAGEMENT</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a class="home" href="{% url 'prodlist' %}">Productlist</a></li>
+                <li class="breadcrumb-item active">Edit Product </li>
+            </ol>
+        </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+      <div class="container-fluid">
+       
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-12">
+            <!-- general form elements disabled -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Edit Product Details</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form role="form" method="post" >
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label>Product Code</label>
+                    <input type="text" class="form-control" name="product_code" value="{{ product.product_code }}" readonly>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Product Name</label>
+                        <input type="text" class="form-control" name="product_name" value="{{ product.product_name }}">
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Brand Name</label>
+                        <input type="text" class="form-control" name="brand_name" value="{{ product.brand_name }}">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Price per Unit</label>
+                        <input type="number" class="form-control" name="price_per_unit" value="{{ product.price_per_unit }}">
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="form-group">
+                    <label> Description</label>
+                    <!-- <input type="text" rows="3" cols="50" class="form-control" name="description" value="{{ product.description }}">  -->
+                    <textarea rows="3" cols="50" class="form-control" id="description" name="description" required>{{ product.description }} </textarea>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label> Item name </label>
+                        <input type="text" class="form-control" name="item_name" value="{{ product.item_name }}" >
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label> Current Rating (A)</label>
+                        <input type="number" class="form-control" name="current_rating" value="{{ product.current_rating }}">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Fault Current (KA)</label>
+                        <input type="number" class="form-control" name="fault_current" value="{{ product.fault_current }}">
+                      </div>
+                    </div>
+                    </div>
+
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label> Power Factor </label>
+                        <input type="number" class="form-control" name="power_factor" value="{{ product.power_factor }}">
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Phase</label>
+                        <input type="text" class="form-control" name="" id="" name="phase" value="{{ product.phase }}">
+                        
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Poles</label>
+                        <input type="text" class="form-control" name="" id="" name="poles" value="{{ product.poles }}">
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label> Length (mm) </label>
+                        <input type="text" class="form-control" name="length" value="{{ product.length }}">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label> Height (mm)</label>
+                        <input type="number" class="form-control"name="height" value="{{ product.height }}">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Width (mm) </label>
+                        <input type="number" class="form-control" name="width" value="{{ product.width }}">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label> Weight (kg)</label>
+                        <input type="number" class="form-control" name="weight" value="{{ product.weight }}">
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+           
+      </div><!-- /.container-fluid -->
+    </section>
+
+    
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  {% endblock content %}

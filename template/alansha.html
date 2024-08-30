@@ -1,0 +1,37 @@
+<!-- templates/alansha.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <p>Total Count: {{ total_count }}</p>
+    <p>Cost: {{ cost }}</p>
+
+    <h2>Saved Records</h2>
+    <table border="1">
+        <tr>
+            <th>POLE</th>
+            <th>MCCB</th>
+            <th>FAULT DUTY</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.pole }}</td>
+            <td>{{ record.mccb }}</td>
+            <td>{{ record.fault_duty }}</td>
+            <td>{{ record.quantity }}</td>
+            <td>{{ record.cost }}</td>
+        </tr>
+        {% endfor %}
+        <a href="{% url 'export_records' %}">Download Records as Excel</a>
+    </table>
+
+    <a href="{% url 'alansha_input' %}">Go Back</a>
+</body>
+</html>

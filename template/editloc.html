@@ -1,0 +1,105 @@
+
+{% extends 'layout/base.html'%}
+{% load static %}
+
+{% block title %}
+Location Management
+{% endblock title %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row" 
+        style="
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;">
+          <div class="col-sm-6">
+            <h1>Edit Location</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'Dashboard' %}">Home</a></li>
+              <li class="breadcrumb-item active">Update location </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title"> Location</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" method="post" name="form1" onsubmit="return validate()">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="inloc">Country</label>
+                    <input type="text" class="form-control" id="country" placeholder="" name="t1" value="{{data.country}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="">State</label>
+                    <input type="text" class="form-control" id="state" placeholder="" name="t2" value="{{data.locationname}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Remarks</label>
+                    {% for colorss in data.locationtax_set.all %}
+
+                    <input type="text" class="form-control" id="remark" placeholder="" name="t3"value="{{ colorss.taxpercentage }}">
+                    {% endfor %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+            <script>
+              function validate(){
+          var productname=document.getElementById('country');
+          var price=document.getElementById('state');
+          
+          var photo=document.getElementById('remark');
+          if(productname.value==""){
+              alert("Must have a country");
+              document.form1.t1.focus();
+              return false;
+          } 
+          if(price.value==""){
+              alert("Must have a state");
+              document.form1.t2.focus();
+              return false;
+          }
+          
+          if(photo.value==''){
+              alert("Must have a remark");
+              document.form1.t3.focus();
+              return false;
+          }
+          alert(" edited sucessfully  ")
+          return true;
+  
+  } 
+  
+            </script>
+
+            {% endblock content %}

@@ -1,0 +1,208 @@
+{% extends 'layout/base.html'%} {% load static %} 
+{% block title%}
+  Project Management
+{% endblock title%}
+{% block content %}
+ <style>
+  .wrappernew{  
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0 10px;
+
+  }
+  h1,h2{
+    text-transform: uppercase;
+  }
+  .new-form{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+  }
+  @media(max-width:445px){
+    .wrappernew{
+    display: flex;
+    flex-direction: column;
+}
+  }
+ </style>
+ <script>
+  function validateMobileNumber() {
+    var mobileNumber = document.getElementById("mobileNumber").value;
+    var regex = /^[1-9]\d{9}$/; // Regular expression to match 10 digit number starting from 1-9
+    if (regex.test(mobileNumber)) {
+        // alert("Valid mobile number!");
+    } else {
+        alert("Invalid mobile number! Please enter a 10-digit number starting from 1-9.");
+        
+    }
+}
+</script>
+   
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>New Project</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{% url 'Dashboard' %}">Home</a></li>
+            <li class="breadcrumb-item active">New Project</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <div>
+    {% if messages %} {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" id="message{{ forloop.counter }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+            <script>
+              setTimeout(function () {
+              $(".alert").fadeOut("slow");
+              }, 2000); // Adjust the delay (in milliseconds) as needed
+            </script>
+          {% endif %} 
+  </div>
+  
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row new-form">
+        <!-- left column -->
+        <div class="col-md-12">           
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Project Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form role="form" method="POST" action="" enctype="multipart/form-data">
+              {% csrf_token%}
+              <div class="card-body">
+               
+                <div class="row">
+                  <div class="col-sm-4">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label for="pcode">Project Code</label>
+                      <input type="text" class="form-control" id="pcode"
+                      placeholder="Enter Code" name="project_code"
+                      required  >
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label for="">Project Name</label>
+                      <input type="text" class="form-control" id=""
+                      placeholder="Enter Project Name" name="project_name"
+                      required >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="">Consultant</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id=""
+                    placeholder="Enter Name" name="consultant"
+                    required
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="">Client Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id=""
+                    placeholder="Enter Name" name="client_name"
+                    required
+                  />
+                </div>
+              </div>
+                <div class="col-sm-4"> 
+                <div class="form-group">
+                  <label for="">Client Number</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="mobileNumber"
+                    placeholder="Enter Mob No" name="client_number" 
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4"> 
+                <div class="form-group">
+                  <label for="">Client Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id=""
+                    placeholder="Enter Email" name="client_email"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="">Upload Load Schedule</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id=""
+                      placeholder="Enter PDF"
+                      required name="upload_loadschedule" accept=".pdf"
+                    />
+                  </div>
+                </div>
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="">Upload SLD</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id=""
+                      placeholder="Enter SLD" name="upload_sld" accept="image/*"/>
+                    
+                  </div>
+                </div>
+              </div>
+                
+             
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button onclick="validateMobileNumber()"  type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+            </div>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        {% endblock content %}
+      </div>
+    </div>
+  </section>
+</div>

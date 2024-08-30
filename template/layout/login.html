@@ -1,0 +1,26 @@
+{%load static%}
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'loginpage.css' %}">
+    <title>Login </title>
+</head>
+<body>
+    <div class="login">
+        <div class="login-box"></div>
+        
+        <h2 class="login-header">Log in</h2>
+      
+        <form method ="POST" action="{% url 'Dashboard' %}"  class="login-container" enctype="multipart/form-data">
+            {% csrf_token %}
+          <p><input type="text" placeholder="username"  name="username"></p>
+          <p><input type="password" placeholder="Password" name="password"></p>
+          <p><input type="submit" > </p>
+        </form>
+      </div>
+</body>
+</html>

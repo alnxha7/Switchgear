@@ -1,0 +1,215 @@
+{% extends 'layout/base.html'%}
+{% load static %}
+
+
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Project List</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Project List</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="container mt-3">
+            <h2>Our Projects</h2>
+            <div class="wrapper">
+                <div class="contents">
+                    <label>Search</label>
+                    <input type="search" class="search" />
+                </div>
+                <div class="contents">
+                    <label>From Date</label>
+                    <input type="date" class="date" />
+                </div>
+                <div class="contents">
+                    <label>To Date</label>
+                    <input type="date" class="date" />
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Project ID</th>
+                            <th>ProjectName</th>
+                            <th>Consultant</th>
+                            <th>Total Connected Load</th>
+                            <th>Maximum Demand</th>
+                            <th>Client Name</th>
+                            <th>ClientMobile</th>
+                            <th>Cient Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Anna</td>
+                            <td>Pitt</td>
+                            <td>35</td>
+                            <td>New York</td>
+                            <td>USA</td>
+                            <td>Female</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>
+                                <i class="fa fa-edit"></i>
+
+                                
+                                    
+                                </i>
+                                
+                                    <!-- Button HTML (to Trigger Modal) -->
+                                    <a href="#myModal" class="trigger-btn" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Anna</td>
+                            <td>Pitt</td>
+                            <td>35</td>
+                            <td>New York</td>
+                            <td>USA</td>
+                            <td>Female</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Anna</td>
+                            <td>Pitt</td>
+                            <td>35</td>
+                            <td>New York</td>
+                            <td>USA</td>
+                            <td>Female</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Anna</td>
+                            <td>Pitt</td>
+                            <td>35</td>
+                            <td>New York</td>
+                            <td>USA</td>
+                            <td>Female</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Anna</td>
+                            <td>Pitt</td>
+                            <td>35</td>
+                            <td>New York</td>
+                            <td>USA</td>
+                            <td>Female</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Anna</td>
+                            <td>Pitt</td>
+                            <td>35</td>
+                            <td>New York</td>
+                            <td>USA</td>
+                            <td>Female</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header flex-column">
+                        <div class="icon-box">
+                            <i class="material-icons">&#xE5CD;</i>
+                        </div>						
+                        <h4 class="modal-title w-100">Are you sure want to delete?</h4>	
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to delete these records? This process cannot be undone.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+              <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+
+            {% endblock content %}
+            
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-folder-open"></i>
+                    <p>
+                      Project Reports
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                </li>
+                  <li class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{% url 'Reports' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Reports</p>
+                      </a>
+                    </li>
+                
+              </ul>

@@ -1,0 +1,133 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Log in</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{% static 'loginpage.css' %}" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}" />
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <!-- icheck bootstrap -->
+        <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}" />
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
+        <style>
+            .login-page {
+                background-image: url(../static/image/switchgear5.jpeg);
+                background-size: cover;
+            }
+            .login-logo {
+                background-color: #007bff;
+            }
+            .head {
+                color: whitesmoke;
+            }
+        </style>
+    </head>
+    <body class="hold-transition login-page">
+        <!-- <div id="backgroundContainer"></div> -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <div class="login-box">
+                    <div class="login-logo">
+                        <a href="#"><h1 class="head">Switch Gear</h1></a>
+                    </div>
+                    <p class="login-box-msg">Please Sign in to start your session</p>
+                    {% if messages %} {% for message in messages %} {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                    {% endif %} {% endfor %} {% endif %}
+
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <input type="text" id="userName" class="form-control" placeholder="Username" name="username" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input
+                                type="password"
+                                id="password"
+                                class="form-control"
+                                placeholder="Password"
+                                name="password"
+                            />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="remember" />
+                                    <label for="remember"> Remember Me </label>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button
+                                    type="submit"
+                                    id="sign_In"
+                                    onclick="validateLogin()"
+                                    class="btn btn-primary btn-block"
+                                >
+                                    Sign In
+                                </button>
+                            </div>
+                            <!-- /.col -->
+                            <p id="error-message" style="color: red"></p>
+                            {% if error_message %}
+                            <p style="color: red">{{ error_message }}</p>
+                            {% endif %}
+                        </div>
+                    </form>
+
+                    <p class="mb-1">
+                        <a href="{% url 'forgotpassword' %}">I forgot my password</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /.login-box -->
+
+        <!-- jQuery -->
+        <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+        <!-- Bootstrap 4 -->
+        <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <!-- AdminLTE App -->
+        <script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+        <script>
+            function validateLogin() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+
+                if (username.trim() === "" || password.trim() === "") {
+                    alert("Please enter both username and password.");
+                } else {
+                    // You can perform further validation if needed
+                    alert("Login successful!");
+                    document.getElementById("loginForm").submit(); // Submit the form
+                }
+            }
+            setTimeout(function () {
+                document.querySelectorAll(".alert").forEach(function (alert) {
+                    alert.remove();
+                });
+            }, 2000);
+
+        </script>
+    </body>
+</html>

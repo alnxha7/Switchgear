@@ -1,0 +1,147 @@
+{% extends 'layout/base.html'%}
+{% load static %}
+{% block title%}
+  Staff Management
+{% endblock title%}
+<style>
+    #a{
+        width: 100%;
+        background-color: blue;
+
+    }
+    h1{
+       text-align: center;
+    }
+</style>
+
+    {% block content%}
+    <script>
+      function hideMessages() {
+          // Hide the messages div
+          document.querySelector('.messages').style.display = 'none';
+      }
+    </script>
+    
+    
+ <div class="content-wrapper">
+  <div class="messages">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+            <button type="button" class="btn btn-sm btn-primary float-right" onclick="hideMessages()">OK</button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div> 
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>STAFF MANAGEMENT</h1>
+          </div>
+         
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'stafflist' %}">Stafflist</a></li>
+              <li class="breadcrumb-item active">Edit Staff</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-md-12">
+          
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Edit Staff Details </h3>
+            </div>
+           
+            <form role="form" method="post" action="">
+              {% csrf_token %}
+              <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                      
+                      <div class="form-group">
+                        <label>Staff Code</label>
+                        <input type="text" class="form-control" id="staffcode" name="staffcode" value="{{ employee.empcode }}" readonly>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Designation</label>
+                        <input type="text" class="form-control" id="desig" name="desig" value="{{ employee.designation }}" required  >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                     
+                      <div class="form-group">
+                        <label>Staff Name</label>
+                        <input type="text" class="form-control" id="staffname" name="staffname" value="{{ employee.name }}" required >
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Address</label>
+                        <textarea rows="3" cols="50" class="form-control" id="addr" name="addr" required>{{ employee.address }} </textarea>
+                        <!-- <input type="text" class="form-control" id="addr" name="addr" value="{{ employee.address }}" required  >
+                      </div> -->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      
+                      <div class="form-group">
+                        <label>Contact No</label>
+                        <input type="number" class="form-control" id="contact" name="contact" value="{{ employee.contact }}" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="mail" name="mail" value="{{ employee.email }}" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control"  id="uname" name="uname" value="{{ employee.uname }}" >
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="password" name="password" value="{{employee.passwrd}}">
+                      </div>
+                    </div>
+                  </div>
+                  
+              </div>
+              
+            
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+            
+            </form>
+          </div>
+          
+
+    </div> 
+{% endblock content%}
+
+
+
+

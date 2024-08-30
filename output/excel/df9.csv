@@ -1,0 +1,40 @@
+Evaluation Only. Created with Aspose.PDF. Copyright 2002-2024 Aspose Pty Ltd.,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14,Unnamed: 15,Unnamed: 16,Unnamed: 17,Unnamed: 18,Unnamed: 19
+PAGE - SCH - 8,,,,,,,,,,,,,,,,,,,
+IAN BANHAM & ASSOCIATES,ELECTRICAL,,,,,,,,,,,,,,,,,,
+PROJECT :,B+G+M+1 FLOOR CAR SHOWROOM & OFFICE BDUEILTDAIINLSGOF CONNECTED LOAD/MAX. DEMAND,,,,,,,,,,,,,,,,,,
+SMDB REF :,SMDB - BE1 (CONT'D),,,,,,CONSULTANT :,,M/S. IAN BANHAM & ASSOCIATES,,,,,,LOCATION : ELECT ROOM,,,,
+SR.,CIRCUIT,SP/,RATING - AMPS,,,FAULT,PVC/XLPE,CABLE SIZE,,LENGTH,ECC,CONNECTED LOAD - KW,,,,KWH METER,,,REMARKS
+NO,"FEEDER
+DB NO.",TP,ACB,MCCB,MCB,"DUTY
+KA",SWA/PVC/SC,"2/4x1C
+mm²","2/3/4C
+mm²","OF
+CABLE (Mtrs)","SIZE -1C
+mm²","R-PHASE
+kW","Y-PHASE
+kW","B-PHASE
+kW","TOTAL
+kW","1 Ph
+(1)","3 Ph
+(2)","LV/HV CT
+(4)",
+,INCOMER,TP,,"225
+(N/A)",,35,FIRE PROOF,,4C 120,,1C 70,,,,,,,,
+,OUTGOING,,,,,,,,,,,,,,,,,,
+13,SUMP PUMP,TP,,20,,35,XLPE/SWA/PVC,,4C 4,,1C 4,0.5,0.5,0.5,1.5,,,,*
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+SMDB - BE1,CONNECTED TO,,,MDB-E,,TOTAL CONNECTED LOAD PER PHASE,,,,,,36.47,35.37,35.47,107.3,,,,TOTAL
+,DEMAND FACTOR…… MAX. DEMAND…...…kW TOTAL CONNECTED LOAD (3 PHASE)…107.30…kW TOTAL BUILD - UP AREA ......... ACTUAL LOAD (3 PH)…...kW,,,,,,,,,,,,,,,,,,
+,CONSULTANTS : M/S. IAN BANHAM AND ASSOCIATES,,,,,,,,,,TEL : 04 - 370 5777,,,,FAX : 04 - 370 5888,,,,
+,Type of Meter (Rating of Incomer) :,,,,(1) UPTO 60A,,,(2) UPTO 125A,,,(3) LV CT,……….../………...,,,HV CT ……….../………...A,,,,
+,,,,,(1 PHASE),,,(3 PHASE),,,,,,,,,,,
