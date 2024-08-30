@@ -125,15 +125,5 @@ class LocationTax(models.Model):
         return self.taxpercentage
     
 
-class SearchRecord(models.Model):
-    pole = models.CharField(max_length=255)
-    mccb = models.IntegerField()
-    fault_duty = models.IntegerField()
-    quantity = models.IntegerField()
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return f'POLE: {self.pole}, MCCB: {self.mccb}, FAULT DUTY: {self.fault_duty}'
-
 
     

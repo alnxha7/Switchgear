@@ -70,7 +70,7 @@ from django.db import transaction
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as newlogin
 from django.contrib.auth.models import User
-from .models import Employee1, SearchRecord
+from .models import Employee1
 
 # def login(request):
 #     error_message = None
@@ -1046,67 +1046,3 @@ def ongoing(request):
 def projestimate(request):
     return render(request, 'projectdetailsform.html')
 
-
-def alansha(request):
-    input_pdf_path = 'input_pdf/LVP&SMDB.pdf'
-    output_pdf_directory = r"output/pdf/"
-    output_excel_directory = r'output/excel/'
-    
-    # Retrieve values from request parameters or set default values
-    pole_value = request.GET.get('pole_value', 'default_pole')
-    mccb_value = int(request.GET.get('mccb_value', 0))
-    fault_duty_value = int(request.GET.get('fault_duty_value', 0))
-    
-    # Call the function
-    total_count, cost = estimate(input_pdf_path, output_pdf_directory, output_excel_directory, pole_value, mccb_value, fault_duty_value)
-    
-    record = SearchRecord(
-        pole=pole_value,
-        mccb=mccb_value,
-        fault_duty=fault_duty_value,
-        quantity=total_count,
-        cost=cost
-    )
-    record.save()
-
-    records = SearchRecord.objects.all()
-
-    # Pass the results to the template
-    context = {
-        'total_count': total_count,
-        'cost': cost,
-        'records': records
-    }
-    
-    return render(request, 'alansha.html', context)
-
-def alansha_input(request):
-    return render(request, 'alansha_input.html')
-
-def export_records_to_excel(request):
-    # Create an Excel workbook and add a worksheet
-    wb = Workbook()
-    ws = wb.active
-    ws.title = 'Records'
-
-    # Define the header
-    headers = ['POLE', 'MCCB', 'FAULT DUTY', 'Quantity', 'Cost']
-    ws.append(headers)
-
-    # Fetch records from the database
-    records = SearchRecord.objects.all().values_list('pole', 'mccb', 'fault_duty', 'quantity', 'cost')
-
-    # Write records to the worksheet
-    for record in records:
-        ws.append(record)
-
-    # Create an in-memory output file
-    output = io.BytesIO()
-    wb.save(output)
-    output.seek(0)
-
-    # Create HTTP response
-    response = HttpResponse(output, content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    response['Content-Disposition'] = 'attachment; filename=search_records.xlsx'
-
-    return response
