@@ -22,11 +22,10 @@ from django.http import FileResponse
 from django.urls import reverse
 import pandas as pd
 from django.http import HttpResponse
-from openpyxl import Workbook
-import io
-
-from .app import estimate
-
+import PyPDF2
+import pandas as pd
+import os
+from natsort import natsorted
 from PyPDF2 import PdfFileReader
 from django.contrib.auth import authenticate, login
 import openpyxl
@@ -34,12 +33,12 @@ import pdfplumber
 # for search report page
 from django.db.models import Q
 from datetime import datetime
-
 #location validation
 from django.http import JsonResponse
 
 # location deletion
-from django.db import transaction
+
+import aspose.pdf as ap
 
 # Create your views here.
 
@@ -1046,3 +1045,121 @@ def ongoing(request):
 def projestimate(request):
     return render(request, 'projectdetailsform.html')
 
+
+
+
+def process_pdf_and_generate_excel(request, project_id):
+    project = get_object_or_404(Project, id=project_id)
+    input_pdf_path = project.upload_loadschedule.path  # Get the file system path
+    
+    output_directory = os.path.join("output", f"project_{project_id}")
+    pdf_directory = os.path.join(output_directory, "pdf")
+    excel_directory = os.path.join(output_directory, "excel")
+    
+    os.makedirs(pdf_directory, exist_ok=True)
+    os.makedirs(excel_directory, exist_ok=True)
+    
+    # Extract pages from PDF
+    with open(input_pdf_path, 'rb') as file:
+        pdf_reader = PyPDF2.PdfReader(file)
+        for page_num in range(21):
+            pdf_writer = PyPDF2.PdfWriter()
+            pdf_writer.add_page(pdf_reader.pages[page_num])
+            output_path = os.path.join(pdf_directory, f'page_{page_num + 1}.pdf')
+            with open(output_path, 'wb') as output_file:
+                pdf_writer.write(output_file)
+    
+    # Convert extracted pages to Excel
+    for filename in os.listdir(pdf_directory):
+        if filename.endswith('.pdf'):
+            pdf_path = os.path.join(pdf_directory, filename)
+            document = ap.Document(pdf_path)
+            excel_filename = f'{os.path.splitext(filename)[0]}.xlsx'
+            excel_path = os.path.join(excel_directory, excel_filename)
+            save_option = ap.ExcelSaveOptions()
+            document.save(excel_path, save_option)
+    
+    # Process and combine Excel sheets
+    sliced_dfs = {}
+    excel_files = natsorted([f for f in os.listdir(excel_directory) if f.endswith('.xlsx')])
+    
+    for idx, filename in enumerate(excel_files):
+        excel_path = os.path.join(excel_directory, filename)
+        df = pd.read_excel(excel_path)
+        sliced_df = df.iloc[0:33]  # Slice the DataFrame (rows 0 to 33)
+        sliced_dfs[f'df{idx + 1}'] = sliced_df
+
+    # Clean DataFrames
+    cleaned_dfs = {}
+    for idx, (key, df) in enumerate(sliced_dfs.items(), start=1):
+        cleaned_df = df.dropna(how='all').copy()
+        cleaned_dfs[f'df{idx}'] = cleaned_df
+    
+    # Categorize DataFrames
+    lv_dfs, smdb_dfs, db_dfs, other_dfs = [], [], [], []
+
+    ref_pattern = "REF"
+
+    def preprocess_dataframe(df):
+        ref_rows = df[df.iloc[:, 0].astype(str).str.contains(ref_pattern, na=False)]
+        df_filtered = df[~df.index.isin(ref_rows.index)]
+        df_filtered = df_filtered[df_filtered.isna().sum(axis=1) <= 5]
+        df_preprocessed = pd.concat([df_filtered, ref_rows]).sort_index()
+        return df_preprocessed
+
+    def categorize_dataframe(df):
+        rows_to_check = df.head(7)
+        for _, row in rows_to_check.iterrows():
+            if ref_pattern in str(row.iloc[0]):
+                first_column_value = str(row.iloc[0]).strip()
+                second_column_value = str(row.iloc[1]).strip() if df.shape[1] > 1 else ""
+                third_column_value = str(row.iloc[2]).strip() if df.shape[1] > 2 else ""
+                if "LV" in first_column_value or "LV" in second_column_value or "LV" in third_column_value:
+                    return 'LV'
+                elif "SMDB" in first_column_value or "SMDB" in second_column_value or "SMDB" in third_column_value:
+                    return 'SMDB'
+                elif "DB" in first_column_value or "DB" in second_column_value or "DB" in third_column_value:
+                    return 'DB'
+        return 'Other'
+
+    for key, df in cleaned_dfs.items():
+        df = preprocess_dataframe(df)
+        category = categorize_dataframe(df)
+        if category == 'LV':
+            lv_dfs.append(df)
+        elif category == 'SMDB':
+            smdb_dfs.append(df)
+        elif category == 'DB':
+            db_dfs.append(df)
+        else:
+            other_dfs.append(df)
+
+    lv_df = pd.concat(lv_dfs, ignore_index=True) if lv_dfs else pd.DataFrame()
+    smdb_df = pd.concat(smdb_dfs, ignore_index=True) if smdb_dfs else pd.DataFrame()
+    db_df = pd.concat(db_dfs, ignore_index=True) if db_dfs else pd.DataFrame()
+    other_df = pd.concat(other_dfs, ignore_index=True) if other_dfs else pd.DataFrame()
+
+    file_path = os.path.join(output_directory, 'categorized_dataframes.xlsx')
+
+    with pd.ExcelWriter(file_path, engine='openpyxl') as writer:
+        sheets_written = False
+        if not lv_df.empty:
+            lv_df.to_excel(writer, sheet_name='COST LV', index=False)
+            sheets_written = True
+        if not smdb_df.empty:
+            smdb_df.to_excel(writer, sheet_name='COST SMDB', index=False)
+            sheets_written = True
+        if not db_df.empty:
+            db_df.to_excel(writer, sheet_name='COST DB', index=False)
+            sheets_written = True
+        if not other_df.empty:
+            other_df.to_excel(writer, sheet_name='Others', index=False)
+            sheets_written = True
+        
+        if not sheets_written:
+            return HttpResponse("No data available to write into Excel.", status=400)
+
+    with open(file_path, 'rb') as f:
+        response = HttpResponse(f.read(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        response['Content-Disposition'] = f'attachment; filename={os.path.basename(file_path)}'
+        return response

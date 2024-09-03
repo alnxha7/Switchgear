@@ -60,6 +60,7 @@ urlpatterns = [
     # path('fetch-projects/', fetch_projects, name='fetch_projects'),#for fetching projects in reports
     #location validATION URL
     path('check_person_name/',login_required(views.check_person_name),name='check_person_name'),
+    path('process-pdf/<int:project_id>/', views.process_pdf_and_generate_excel, name='process_pdf_and_generate_excel'),
    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
